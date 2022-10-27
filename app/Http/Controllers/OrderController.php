@@ -96,7 +96,7 @@ class OrderController extends Controller
 
     public function getOrdersByDate(Request $request, $date)
     {
-        var_dump($date);
+        // var_dump($date);
         try {
             $orders = DB::table('orders AS ordn')
                 ->select(
@@ -107,7 +107,7 @@ class OrderController extends Controller
                         'ordn.delivery_date AS fecha_entrega'
                     ]
                 )->join('clients AS cl', 'cl.id', 'ordn.client_id')
-                ->whereDate('ordn.delivery_date', $request->date)
+                ->whereDate('ordn.delivery_date', $date)
                 ->get();
             return response()->json([
                 'status' => 200,
