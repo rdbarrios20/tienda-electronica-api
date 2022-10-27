@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/get-orders', [OrderController::class, 'index']);
-Route::get('/get-orders-date', [OrderController::class, 'getOrdersByDate']);
+Route::get('/get-orders-date/{date}', [OrderController::class, 'getOrdersByDate']);
 Route::get('/get-products-order/{id}', [OrderController::class, 'show']);

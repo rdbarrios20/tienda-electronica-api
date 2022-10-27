@@ -94,8 +94,9 @@ class OrderController extends Controller
         //
     }
 
-    public function getOrdersByDate(Request $request)
+    public function getOrdersByDate(Request $request, $date)
     {
+        var_dump($date);
         try {
             $orders = DB::table('orders AS ordn')
                 ->select(
